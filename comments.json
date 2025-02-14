@@ -1,0 +1,72 @@
+[
+  {
+    "_id": {
+      "$oid": "652cc6cd83c0aab446fd6a06"
+    },
+    "username": "Nguyễn Văn A",
+    "text": "Vợt sử dụng êm tay",
+    "createAt": {
+      "$date": "2023-10-16T05:14:53.257Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "652cc74483c0aab446fd6a09"
+    },
+    "username": "Trần Thị B",
+    "text": "Mặt vợt cacbon đánh rất xoáy",
+    "createAt": {
+      "$date": "2023-10-16T05:16:52.418Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "652d0ef49ed9c1135a182070"
+    },
+    "username": "Lionel Messi",
+    "text": "Vợt này phù hợp với người newbie như tôi",
+    "createAt": {
+      "$date": "2023-10-16T10:22:44.381Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "652d55f19ed9c1135a182073"
+    },
+    "username": "Cristian Ronaldo",
+    "text": "Vợt rẻ nhưng sản phẩm rất tuyệt với",
+    "createAt": {
+      "$date": "2023-10-16T15:25:37.866Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "652d6307377cdf80de632f7c"
+    },
+    "username": "Văn Toàn",
+    "text": "Thiết kế đẹp mắt , chỉnh chu",
+    "createAt": {
+      "$date": "2023-10-16T16:21:27.595Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "652d63d73d7d8f13fbaa4a02"
+    },
+    "username": "Veronica Goodwin",
+    "text": "Great !",
+    "createAt": {
+      "$date": "2023-10-16T16:24:55.119Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "652f56e115b3bb0409ed8b96"
+    },
+    "username": "Veronica Goodwin",
+    "text": "Very Good",
+    "createAt": {
+      "$date": "2023-10-18T03:54:09.473Z"
+    }
+  }
+]
