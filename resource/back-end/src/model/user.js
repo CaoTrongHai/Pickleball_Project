@@ -30,6 +30,9 @@ const userSchema = new Schema(
     },
     avatar: { type: String, default: "/images/default-avatar.jpg" },
     phoneNumber: { type: String },
+    address: { type: String },
+    otp: { type: String },
+    otpExpired: { type: String },
   },
   { timestamps: true }
 );
