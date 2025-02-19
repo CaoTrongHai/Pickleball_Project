@@ -1,0 +1,73 @@
+Task :
+Viết API : 
+ get : http://localhost:9999/categories   list Category           ok
+ get :  http://localhost:9999/categories/id  getCategoryById      ok
+ post : http://localhost:9999/categories   create Category        ok
+ put :   http://localhost:9999/categories/id  updateCategoryById  ok
+ delete:  http://localhost:9999/categories/id  deleteCategoryById ok
+
+ post: http://localhost:9999/users/register đăng ký               ok
+ post: http://localhost:9999/users/login đăng nhập                ok
+ get:  http://localhost:9999/users : lấy toàn bộ danh sách user   ok
+ get:  http://localhost:9999/users/id : lấy user theo id          ok
+ put:   http://localhost:9999/users/id: update user               ok
+ delete :  http://localhost:9999/users/id delete user             ok
+
+
+ 
+
+
+Products
+get: http://localhost:9999/products  list Product                 ok
+get: http://localhost:9999/products/id  get Product By Id         ok
+post: get: http://localhost:9999/products  create Product         ok
+put: http://localhost:9999/products/id  updateProductById         ok
+delete: http://localhost:9999/products/id  deleteProductById      ok
+
+
+
+Cấu hình nodemailer
+API gửi OTP khi quên mật khẩu POST http://localhost:9999/users/forgotPassword   (body: truyền vào la email) ok
+Xác thực OTP  http://localhost:9999/users/verfifyPassword                                                                                         
+API thay đổi mật khẩu    http://localhost:9999/users/resetPassword                                          ok 
+
+
+  Comments
+ get : http://localhost:9999/comments  list Comment               ok
+
+  POST /api/comments/add - Thêm bình luận.
+GET /api/comments/product/:productId - Lấy tất cả bình luận của sản phẩm.
+GET /api/comments/user/:userId - Lấy tất cả bình luận của người dùng.
+PUT /api/comments/:commentId - Cập nhật bình luận.
+DELETE /api/comments/:commentId - Xóa bình luận.
+GET /api/comments/:commentId - Lấy chi tiết bình luận.
+GET /api/comments/filter - Lọc bình luận theo điều kiện.
+
+
+
+
+
+
+
+
+
+Danh sách API cần có:
+Giỏ hàng (Cart)
+
+[GET] /carts/{userId} - Lấy giỏ hàng của một user. ok
+[POST] /carts/{userId}/add - Thêm sản phẩm vào giỏ hàng. ok
+[PUT] /carts/{userId}/update - Cập nhật số lượng sản phẩm trong giỏ hàng. ok
+[DELETE] /carts/{userId}/remove/{productId} - Xóa sản phẩm khỏi giỏ hàng.
+[DELETE] /carts/{userId}/clear - Xóa toàn bộ giỏ hàng.
+Đơn hàng (Order)
+
+[POST] /order/create - Tạo đơn hàng từ giỏ hàng.
+[GET] /order/{orderId} - Lấy thông tin chi tiết của một đơn hàng.
+[GET] /orders/{userId} - Lấy danh sách đơn hàng của một user.
+
+Chi tiết đơn hàng (Order Details)
+
+[GET] /orderDetails/{orderId} - Lấy danh sách sản phẩm trong đơn hàng.
+Thanh toán (Payment)
+
+[POST] /payment/process - Xử lý thanh toán cho đơn hàng.
