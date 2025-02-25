@@ -3,17 +3,27 @@ const Product = require("../model/product.js");
 const Category = require("../model/category.js");
 
 const getListProduct = async (req, res) => {
+  const page = parseInt(req.query.page) || 1;
+  const limit = parseInt(req.query.limit) || 5;
+
   try {
-    const listProduct = await Product.find()
-      .populate("comments")
-      .populate("category");
-    return res
-      .status(200)
-      .json({ message: "get List Product successfully", data: listProduct });
+    const options = {
+      page,
+      limit,
+      populate: ["comments", "category"], // ✅ Dùng populate đúng cách
+    };
+
+    const listProduct = await Product.paginate({}, options); // ✅ Gọi paginate đúng
+
+    return res.status(200).json({
+      message: "Get List Product successfully",
+      data: listProduct,
+    });
   } catch (error) {
     return res.status(500).json({ message: error.toString() });
   }
 };
+
 
 const getProductById = async (req, res) => {
   try {
@@ -81,15 +91,15 @@ const deleteProduct = async (req, res) => {
 const updateProduct = async (req, res) => {
   try {
     const productId = req.params.id;
-     const { category, ...updateData } = req.body;
+    const { category, ...updateData } = req.body;
 
-     // Kiểm tra xem category có tồn tại trong collection Category hay không
-     if (category) {
-       const categoryExists = await Category.findById(category);
-       if (!categoryExists) {
-         return res.status(400).json({ message: "Category does not exist" });
-       }
-     }
+    // Kiểm tra xem category có tồn tại trong collection Category hay không
+    if (category) {
+      const categoryExists = await Category.findById(category);
+      if (!categoryExists) {
+        return res.status(400).json({ message: "Category does not exist" });
+      }
+    }
     const productById = await Product.findById(productId);
     if (!productById) {
       return res.status(400).json({ message: "Product ID is not exist" });

@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 const { Schema } = require("mongoose");
-
+const mongoosePaginate = require("mongoose-paginate-v2");
 const productSchema = new Schema({
   name: { type: String },
   description: { type: String },
@@ -17,6 +17,8 @@ const productSchema = new Schema({
   comments: [{ type: Schema.Types.ObjectId, ref: "Comment" }],
   category: { type: Schema.Types.ObjectId, ref: "Category" },
 });
+// kích hoạt phân trang
+productSchema.plugin(mongoosePaginate);
 
 const Product = mongoose.model("Product", productSchema);
 module.exports = Product;
