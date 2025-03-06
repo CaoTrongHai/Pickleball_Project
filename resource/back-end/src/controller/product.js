@@ -1,4 +1,4 @@
-const { Schema } = require("mongoose");
+const mongoose = require("mongoose");
 const Product = require("../model/product.js");
 const Category = require("../model/category.js");
 
@@ -23,7 +23,6 @@ const getListProduct = async (req, res) => {
     return res.status(500).json({ message: error.toString() });
   }
 };
-
 
 const getProductById = async (req, res) => {
   try {
@@ -114,10 +113,39 @@ const updateProduct = async (req, res) => {
       message: "Product updated successfully!",
       data: updatedProduct,
     });
+  } catch (error) {}
+};
+
+const findProductByCategory = async (req, res) => {
+  try {
+    const categoryId  = req.params.categoryId; // Lấy categoryId từ params
+
+    // Kiểm tra nếu categoryId có phải ObjectId hợp lệ
+    if (!mongoose.Types.ObjectId.isValid(categoryId)) {
+      return res.status(400).json({ message: "Invalid Category ID" });
+    }
+
+    // Convert categoryId thành ObjectId trước khi tìm kiếm
+    const objectIdCategory = new mongoose.Types.ObjectId(categoryId);
+
+    // Tìm sản phẩm theo categoryId
+    const productByCategory = await Product.find({
+      category: objectIdCategory,
+    });
+
+    // Kiểm tra nếu không có sản phẩm nào
+    if (productByCategory.length === 0) {
+      return res
+        .status(404)
+        .json({ message: "No products found for this category" });
+    }
+
+    return res.status(200).json(productByCategory);
   } catch (error) {
     return res.status(500).json({ message: error.toString() });
   }
 };
+
 
 module.exports = {
   getListProduct,
@@ -125,4 +153,5 @@ module.exports = {
   createProduct,
   deleteProduct,
   updateProduct,
+  findProductByCategory
 };
