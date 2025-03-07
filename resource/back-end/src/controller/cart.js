@@ -11,7 +11,7 @@ const getCartByUserId = async (req, res) => {
       return res.status(400).json({ message: "Cart is not exist" });
     }
     return res
-      .status(500)
+      .status(200)
       .json({ message: "get Cart By User Id successfully", data: cart });
   } catch (error) {
     return res.status(500).json({ message: error.toString() });
